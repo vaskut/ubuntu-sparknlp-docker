@@ -49,9 +49,6 @@ RUN pip3 install --upgrade pip
 RUN pip3 install pyspark==3.1.1 spark-nlp==3.1.1 notebook==5.* numpy pandas mlflow
 RUN pip3 install matplotlib pydot tensorflow==2.4.1 graphviz
 
-RUN jupyter notebook --generate-config
-COPY jupyter_notebook_config.json /home/rahulmittal/.jupyter/jupyter_notebook_config.json
-
 WORKDIR ${HOME}
 
 # Specify the default command to run
