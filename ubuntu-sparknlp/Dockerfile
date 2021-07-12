@@ -1,7 +1,7 @@
 #Download base image ubuntu 18.04
-FROM rm/ubuntu-base
+FROM vaskut/ubuntu-base
 
-ENV HOME /home/rahulmittal
+ENV HOME /home/${USERNAME}
 
 ENV PYSPARK_PYTHON=python3
 ENV PYSPARK_DRIVER_PYTHON=python3
@@ -46,7 +46,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN pip3 install --upgrade pip
 # You only need pyspark and spark-nlp paclages to use Spark NLP
 # The rest of the PyPI packages are here as examples
-RUN pip3 install pyspark==3.1.1 spark-nlp==3.1.1 notebook==5.* numpy pandas mlflow
+RUN pip3 install pyspark==3.1.1 spark-nlp==3.1.1 notebook numpy pandas mlflow
 RUN pip3 install matplotlib pydot tensorflow==2.4.1 graphviz
 
 WORKDIR ${HOME}
